@@ -9,6 +9,7 @@ const Nav = styled.nav<{height: number}>`
     height: ${props => props.height}vh;
     display: flex;
     justify-content: space-between;
+    background-color: ${theme.brand};
 `;
 
 const UList = styled.ul<{vertical?: boolean}>`
@@ -16,6 +17,8 @@ const UList = styled.ul<{vertical?: boolean}>`
     list-style-type: none;
     justify-content: space-between;
     align-items: center;
+
+    background-color: ${theme.brand};
 
     ${props => props.vertical ?
         'flex-flow: column nowrap;' : '' }
@@ -36,7 +39,7 @@ const A = styled.a<{vertical?: boolean}>`
     ${props => props.vertical? 'padding: 1em;' : ''}
     text-decoration: none;
 
-    color: ${theme.brand};
+    color: ${theme["grey-lighter"]};
 `;
 
 const LinkNode = styled.li`
@@ -61,6 +64,10 @@ const MenuButton = styled.button`
     padding-left: 1em;
     padding-right: 1em;
     background: transparent;
+`;
+
+const MenuIcon = styled(FiMenu)`
+    color: ${theme["grey-lighter"]};
 `;
 
 /**
@@ -171,7 +178,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
             <Link key={item} to={`#${item}`} vertical={ isdevice.mobile() }>{ item }</Link>
         ));
 
-        const button = [ <MenuButton onClick={this.handleToggle}> <FiMenu /> </MenuButton> ];
+        const button = [ <MenuButton onClick={this.handleToggle}> <MenuIcon /> </MenuButton> ];
 
         if (isdevice.mobile()) {
             if (this.state.is_collapsed) {
