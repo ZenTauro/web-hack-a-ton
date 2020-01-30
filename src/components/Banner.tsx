@@ -9,6 +9,7 @@ const Aside = styled.aside<{ height: number, background_url: string }>`
     background-image: url(${props => props.background_url});
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: ${props => props.height}vh;
 
     @media only screen and (max-width: 768px) {
