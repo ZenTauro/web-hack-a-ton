@@ -178,7 +178,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
             <Link key={item} to={`#${item}`} vertical={ isdevice.mobile() }>{ item }</Link>
         ));
 
-        const button = [ <MenuButton onClick={this.handleToggle}> <MenuIcon /> </MenuButton> ];
+        const button = [ <MenuButton key="0" onClick={this.handleToggle}> <MenuIcon /> </MenuButton> ];
 
         if (isdevice.mobile()) {
             if (this.state.is_collapsed) {
